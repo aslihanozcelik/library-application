@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="album py-lg-5"  >
+    <div class="container"  >
+
+      <div class="row justify-content-around"  style="margin:0 auto; ">
+        <div class="col-md-4">
+          <div class="card mb-4 box-shadow text-center">
+            <img src="https://www.ukrgate.com/eng/wp-content/uploads/2021/02/The-Ukrainian-Book-Institute-Purchases-380.9-Thousand-Books-for-Public-Libraries1.jpeg" height=250 alt="Books">
+            <div class="card-body">
+                <a type="button" href="{% url 'books:book-list' %}" class="btn btn-secondary">Kitap Listesini Görüntüle</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4 box-shadow text-center">
+            <img class="card-image-middle" src="https://png.pngitem.com/pimgs/s/421-4212736_member-area-customers-icon-png-transparent-png.png" height=250 alt="Author">
+            <div class="card-body">
+              <a type="button" href="{% url 'members:member-list' %}" class="btn btn-secondary">Üye Listesini Görüntüle</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %} 

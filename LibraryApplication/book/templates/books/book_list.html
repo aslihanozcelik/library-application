@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Kitap Listeleme</title>
+{% endblock %}
+
+{% block content %}
+<div class="album py-5 ">
+  <div class="container">
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">ISBN</th>
+          <th scope="col">Kitap Adı</th>
+          <th scope="col">Yazar</th>
+          <th scope="col">Dili</th>
+          <th scope="col">Yayınevi</th>
+          <th scope="col">Durumu</th>
+          <th scope="col">Sayfa Sayısı</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for book in object_list %}
+        <tr class="table-light">
+          <td>{{ book.isbn }}</td>
+          <td>{{ book.title }}</td>
+          <td>{{ book.author }}</td>
+          <td>{{ book.get_language_display }}</td>
+          <td>{{ book.publisher }}</td>
+
+          {% if book.user.name == "Kütüphane" %}
+          <td>Kütüphanede</td>
+          {% else %}
+          <td>Ödünç Alındı({{ book.user.name }})</td>
+          {% endif %}
+
+
+          <td>{{ book.numberOfPages }}</td>
+          <td><a href="{{ book.get_update_url }}" class="btn btn-success active">Güncelle</a></td>
+          <td><a href="{{ book.get_delete_url }}" class="btn btn-danger active">Sil</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

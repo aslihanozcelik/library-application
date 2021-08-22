@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+<title>Kitap Ekle</title>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="album py-5 ">
+  <div class="container">
+    <form action='.' style="align-items: center;" method='POST'>{% csrf_token %}
+      <table class="table">
+
+        <tbody>
+          <tr>
+
+            <td><img src="https://kitaplareldenele.files.wordpress.com/2013/10/book_add.png" height="70" width="90"
+                alt=".."></td>
+            <td style="font-size:30px"><strong>Kitap Ekle</strong></td>
+
+          </tr>
+          <tr>
+
+            <td><strong>Kitap Adı : </strong></td>
+            <td>{{form.title}}</td>
+
+          </tr>
+          <tr>
+
+            <td><strong>Yazar : </strong></td>
+            <td>{{form.author}}</td>
+
+          </tr>
+          <tr>
+
+            <td><strong>Isbn : </strong></td>
+            <td>{{form.isbn}}</td>
+
+          </tr>
+          <tr>
+
+            <td><strong>Sayfa Sayısı : </strong></td>
+            <td>{{form.numberOfPages}}</td>
+
+          </tr>
+          <tr>
+
+            <td><strong>Dil : </strong></td>
+            <td>{{form.language}}</td>
+
+          </tr>
+
+          <tr>
+
+            <td><strong>Yayın Evi : </strong></td>
+            <td>{{form.publisher}}</td>
+
+          </tr>
+          <tr>
+
+            <td><strong>Kitap Durumu </strong></td>
+            <td>{{form.user}}</td>
+
+          </tr>
+
+          <tr>
+            <td></td>
+            <td>
+
+              <button type="submit" style="width: 15%; " value="Save" class="btn btn-primary">Ekle</button>
+
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+
+    </form>
+  </div>
+</div>
+{% endblock %}

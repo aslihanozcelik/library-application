@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+<title>Üye Listeleme</title>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="album py-5 ">
+  <div class="container">
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">İsim</th>
+          <th scope="col">TC</th>
+          <th scope="col">Telefon</th>
+          <th scope="col">Adres</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+
+        </tr>
+      </thead>
+      <tbody>
+        {% for member in object_list %}
+        <tr class="table-light">
+          <td>{{ member.name }}</td>
+          <td>{{ member.tc }}</td>
+          <td>{{ member.phone }}</td>
+          <td>{{ member.address }}</td>
+          <td><a href="{{ member.get_update_url }}" class="btn btn-success active">Güncelle</a></td>
+          <td><a href="{{ member.get_delete_url }}" class="btn btn-danger active">Sil</a></td>
+
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %}

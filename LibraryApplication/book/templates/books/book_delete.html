@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Kitap Silme</title>
+{% endblock %}
+
+{% block content %}
+<div class="album py-5 ">
+    <div class="container">
+        <form action='.' method='POST'>{% csrf_token %}
+            <div style="text-align: center;">
+                <h1> "{{ object.title }}" isimli kitabı silmek istiyor musunuz?</h1>
+                <button type="submit" style="width: 15%; " value="Yes" class="btn btn-danger">Sil</button>
+                <a class="btn btn-secondary" style="width: 15%; " href="{% url 'books:book-list' %}">İptal Et</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
